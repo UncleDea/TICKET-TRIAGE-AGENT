@@ -1,0 +1,36 @@
+﻿name: governance-gate
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest
+      - name: Agent unit tests
+        run: pytest -q triage_agent supervisor
+      - name: Red-team tests (prompt injection)
+        run: pytest -q tests/test_prompt_injection.py
+      - name: Evaluation gate (real model, only when the secret exists)
+        if: env.OPENAI_API_KEY != ''
+        run: python governance/eval/run_eval.py
+      - name: Keep the evaluation report as evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-report
+          path: governance/eval/eval_report.json
+          if-no-files-found: ignore

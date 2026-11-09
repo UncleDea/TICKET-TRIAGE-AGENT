@@ -3,6 +3,7 @@
 from investigator.schemas import Investigation
 from responder.schemas import ResponseDraft
 from send.agent import hold_reason
+from triage_agent.safety import has_security_signal
 from triage_agent.schemas import TicketState
 
 
@@ -12,6 +13,8 @@ def choose_next_node(ticket_state: TicketState) -> str:
     High and critical tickets go to a human. A hitl hint does too, which covers
     the low-confidence fallback. Every other triaged ticket goes to Investigator.
     """
+    if has_security_signal(ticket_state.raw_text):
+        return "hitl"
     if ticket_state.severity in {"high", "critical"}:
         return "hitl"
     if ticket_state.next_node_hint == "hitl":
