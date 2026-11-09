@@ -1,0 +1,41 @@
+ticket_id,language,text,expected_critical
+T001,en,Ransomware note appeared on the main file server and files are encrypted,1
+T002,en,All users are locked out of Microsoft 365 since 8am,1
+T003,en,Email server is down for the entire company,1
+T004,en,Possible breach: admin account logins from a foreign IP overnight,1
+T005,en,Firewall failed and the whole site is offline,1
+T006,en,Payroll database is corrupted and payroll runs tomorrow,1
+T007,en,CFO clicked a phishing email and entered her password,1
+T008,en,Domain controller is unresponsive and nobody can log in,1
+T009,en,Backup server crashed and last night's backup did not run,1
+T010,en,Malware is spreading across workstations in accounting,1
+T011,en,Printer on the second floor keeps jamming,0
+T012,en,Please reset my password,0
+T013,en,I need a new mouse,0
+T014,en,How do I change my Outlook signature?,0
+T015,en,Please install Zoom on my laptop,0
+T016,en,My second monitor flickers sometimes,0
+T017,en,Add me to the marketing distribution list,0
+T018,en,Wi-Fi goes down for a few seconds in the conference room,0
+T019,en,VPN disconnects once or twice a day,0
+T020,en,Request access to the shared HR mailbox,0
+T021,es,Nota de rescate de ransomware en el servidor de archivos,1
+T022,es,Todos los usuarios están locked out de Microsoft 365,1
+T023,es,El servidor de correo no funciona para toda la empresa,1
+T024,es,Posible intrusión: inicios de sesión del administrador desde otro país,1
+T025,es,Todo el sitio está offline porque el firewall no responde,1
+T026,es,La base de datos de nómina está dañada,1
+T027,es,El director financiero hizo clic en un correo de phishing y escribió su contraseña,1
+T028,es,El controlador de dominio no responde y nadie puede iniciar sesión,1
+T029,es,El servidor de respaldo crashed y no hay copia de anoche,1
+T030,es,Un malware se está propagando en las computadoras de contabilidad,1
+T031,es,La impresora del segundo piso se atasca,0
+T032,es,Necesito restablecer mi contraseña,0
+T033,es,Necesito un mouse nuevo,0
+T034,es,¿Cómo cambio mi firma de Outlook?,0
+T035,es,Por favor instalen Zoom en mi laptop,0
+T036,es,Mi segundo monitor parpadea a veces,0
+T037,es,Agréguenme a la lista de distribución de marketing,0
+T038,es,La impresora de la oficina 2 aparece offline,0
+T039,es,La VPN se desconecta una o dos veces al día,0
+T040,es,Solicito acceso al buzón compartido de Recursos Humanos,0

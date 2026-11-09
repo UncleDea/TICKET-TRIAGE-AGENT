@@ -10,6 +10,7 @@ from typing import Any
 from triage_agent.config import CONFIDENCE_THRESHOLD, MODEL_NAME, TEMPERATURE
 from triage_agent.prompts import classification_messages
 from triage_agent.schemas import TicketInput, TicketState, TriageClassification
+from triage_agent.safety import has_security_signal
 
 __all__ = ["run_triage"]
 
@@ -71,12 +72,21 @@ def run_triage(
             fallback=True,
         )
 
+    severity = classification.severity
+    reasoning = classification.reasoning
+    if has_security_signal(validated.raw_text) and severity in {"low", "medium"}:
+        severity = "high"
+        reasoning = (
+            f"Severity floor applied: security signal in ticket text "
+            f"(model said {classification.severity}). {reasoning}"
+        )
+
     return _assemble(
         validated,
         category=classification.category,
-        severity=classification.severity,
+        severity=severity,
         confidence=classification.confidence,
-        reasoning=classification.reasoning,
+        reasoning=reasoning,
         fallback=False,
     )
 

@@ -1,0 +1,27 @@
+{
+  "dataset": "golden_tickets.csv",
+  "n_tickets": 40,
+  "by_language": {
+    "en": {
+      "tp": 10,
+      "fn": 0,
+      "fp": 0,
+      "tn": 10,
+      "critical_recall": 1.0,
+      "critical_precision": 1.0
+    },
+    "es": {
+      "tp": 10,
+      "fn": 0,
+      "fp": 0,
+      "tn": 10,
+      "critical_recall": 1.0,
+      "critical_precision": 1.0
+    }
+  },
+  "recall_gap": 0.0,
+  "hitl_on_critical": 1.0,
+  "missed_critical_ids": [],
+  "gate": "PASS",
+  "failures": []
+}
